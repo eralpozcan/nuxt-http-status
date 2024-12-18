@@ -122,6 +122,11 @@ console.log(status['404_MESSAGE']) // "Not Found"
 That's it! You can now use Nuxt-HTTP-Status in your Nuxt app ✨
 
 
+## Credits
+
+- [HTTP-Status](https://github.com/adaltas/node-http-status)
+
+
 ## Contribution
 
 <details>
