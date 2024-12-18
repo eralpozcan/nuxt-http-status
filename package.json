@@ -1,6 +1,6 @@
 {
   "name": "nuxt-http-status",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "HTTP status codes for Nuxt",
   "repository": {
     "type": "git",
