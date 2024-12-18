@@ -18,7 +18,7 @@ A Nuxt 3 module that integrates the `http-status` package, making HTTP status co
 
 
 - [✨ &nbsp;Release Notes](/CHANGELOG.md)
-<!-- - [🏀 Online playground](https://stackblitz.com/github/your-org/my-module?file=playground%2Fapp.vue) -->
+- [🏀 Online playground](https://stackblitz.com/github/eralpozcan/nuxt-http-status?file=playground%2Fapp.vue)
 <!-- - [📖 &nbsp;Documentation](https://example.com) -->
 
 ## Features
