@@ -54,8 +54,3 @@ coverage
 Network Trash Folder
 Temporary Items
 .apdisk
-
-
-pnpm-lock.yaml
-yarn.lock
-package-lock.json
