@@ -9,37 +9,44 @@ on:
       - main
 
 jobs:
-  lint:
+  build:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
-      - run: corepack enable
-      - uses: actions/setup-node@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Enable Corepack
+        run: corepack enable
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
           node-version: 20
+          cache: 'pnpm' 
 
-      - name: Install dependencies
-        run: npx nypm@latest i
+      - name: Install pnpm
+        run: npm install -g pnpm
 
-      - name: Lint
-        run: npm run lint
+      - name: Verify pnpm version
+        run: pnpm --version
 
-  test:
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v4
-      - run: corepack enable
-      - uses: actions/setup-node@v4
+      - name: Cache dependencies
+        uses: actions/cache@v3
         with:
-          node-version: 20
+          path: ~/.pnpm-store
+          key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-
 
       - name: Install dependencies
-        run: npx nypm@latest i
+        run: pnpm install --no-frozen-lockfile
 
-      - name: Playground prepare
-        run: npm run dev:prepare
+      - name: Run build
+        run: pnpm run build
 
-      - name: Test
-        run: npm run test
+      - name: Run tests
+        run: pnpm test
+
+      - name: Clean npm cache (Optional)
+        run: npm cache clean --force
